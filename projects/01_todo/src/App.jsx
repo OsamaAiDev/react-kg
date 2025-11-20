@@ -1,11 +1,17 @@
+import AddTodo from "./components/AddTodo";
+import AppName from "./components/AppName";
+import TodoItem from "./components/TodoItem";
+import "./App.css";
+
 const App = () => {
   return (
     <div className="todo-container">
-      <h1>TODO App</h1>
+      <AppName />
       <div class="container text-center">
-        <div class="row">
-          <div class="col-8">col-8</div>
-          <div class="col-4">col-4</div>
+        <AddTodo />
+        <div className="items-container">
+          <TodoItem />
+          <TodoItem />
         </div>
       </div>
     </div>
