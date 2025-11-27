@@ -1,15 +1,15 @@
 import styles from "./Item.module.css";
 
-const Item = ({ item, handleBuyButton }) => {
+const Item = ({ item, bought, handleBuyButton }) => {
   return (
     <>
-      <li className={`${styles["item"]} list-group-item`}>
+      <li className={`${styles["item"]} list-group-item ${bought && "active"}`}>
         <span>{item.toUpperCase()}</span>
         <button
           onClick={handleBuyButton}
           className={`${styles.button} btn btn-info`}
         >
-          Buy Now
+          {bought ? "Bought" : "Buy Now"}
         </button>
       </li>
     </>
