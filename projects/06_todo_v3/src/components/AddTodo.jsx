@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 const AddTodo = ({ onNewItem }) => {
   const [todoName, setTodoName] = useState("");
   const [todoDate, setTodoDate] = useState("");
+  const noOfUpdates = useRef(0);
   const handleTodoName = (e) => {
     setTodoName(e.target.value);
+    noOfUpdates.current += 1;
   };
   const handleTodoDate = (e) => {
     setTodoDate(e.target.value);
+    console.log(`No of updates are ${noOfUpdates.current}`);
   };
   const handleAddBtnClick = (e) => {
     e.preventDefault();
