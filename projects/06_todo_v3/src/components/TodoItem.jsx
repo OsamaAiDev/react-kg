@@ -1,3 +1,5 @@
+import { MdDeleteForever } from "react-icons/md";
+
 const TodoItem = ({ todoName, onDeleteClick, todoDate = "5/6/2022" }) => {
   return (
     <div className="container">
@@ -10,7 +12,7 @@ const TodoItem = ({ todoName, onDeleteClick, todoDate = "5/6/2022" }) => {
             className="btn btn-danger todo-button"
             onClick={() => onDeleteClick(todoName)}
           >
-            Delete
+            <MdDeleteForever /> Delete
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { IoIosAddCircleOutline } from "react-icons/io";
 const AddTodo = ({ onNewItem }) => {
   const [todoName, setTodoName] = useState("");
   const [todoDate, setTodoDate] = useState("");
@@ -9,14 +9,15 @@ const AddTodo = ({ onNewItem }) => {
   const handleTodoDate = (e) => {
     setTodoDate(e.target.value);
   };
-  const handleAddBtnClick = () => {
+  const handleAddBtnClick = (e) => {
+    e.preventDefault();
     onNewItem(todoName, todoDate);
     setTodoName("");
     setTodoDate("");
   };
   return (
     <div className="container">
-      <div className="row todo-row">
+      <form onSubmit={handleAddBtnClick} className="row todo-row">
         <div className="col-6">
           <input
             type="text"
@@ -29,15 +30,11 @@ const AddTodo = ({ onNewItem }) => {
           <input type="date" onChange={handleTodoDate} value={todoDate} />
         </div>
         <div className="col-2">
-          <button
-            onClick={handleAddBtnClick}
-            type="button"
-            className="btn btn-success todo-button"
-          >
-            Add
+          <button className="btn btn-success todo-button">
+            Add <IoIosAddCircleOutline />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
